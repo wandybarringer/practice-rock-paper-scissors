@@ -1,14 +1,38 @@
 // 1) Ask user for their selection
+// TODO: Create selection options
+var options = ['r', 'p', 's'];
 // TODO: prompt the user for their choice
+var userChoice = prompt('Choose r, p, or s');
+console.log(userChoice);
+
 // TODO: EDGE CASE: user doesn't pick r, p or s
 // TODO: EDGE CASE: case sensitivity
 // TODO: EDGE CASE: Empty submission
 // 2) Generate the computer's selection
 // TODO: random selection of r,p,s var index = math.floor(math.random * array.length)
+var index = Math.floor(Math.random() * options.length);
+var compChoice = options[index];
+console.log(compChoice);
+
 // 3) Compare selections
 // TODO: if user picks r && comp picks s or user picks s && comp picks p, win
-// TODO: if user and comp pick same, tie
-// TODO: if user picks s && comp picks r or user picks p && comp picks s, loss
+if (
+  (userChoice === 'r' && compChoice === 's') ||
+  (userChoice === 's' && compChoice === 'p') ||
+  (userChoice === 'p' && compChoice === 'r')
+) {
+  console.log('Win');
+  // TODO: if user picks s && comp picks r or user picks p && comp picks s, loss
+} else if (
+  (userChoice === 's' && compChoice === 'r') ||
+  (userChoice === 'p' && compChoice === 's') ||
+  (userChoice === 'r' && compChoice === 'p')
+) {
+  console.log('Loss');
+  // TODO: if user and comp pick same, tie
+} else {
+  console.log('Tie');
+}
 // 4) Display results
 // TODO: show reults in popup
 // 5) Display score
